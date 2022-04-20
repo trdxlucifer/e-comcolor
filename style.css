@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+ 
+:root {
+  --lighter-purple: #161c17;
+  --darker-purple: #35af52;
+  --text-2xl: 6rem;
+  --heading-reflection:  below -2rem linear-gradient(to bottom, rgba(0,0,0, 0), rgba(0,0,0, 0.15));
+}
+
+@media (max-width: 800px) {
+  :root {
+    --text-2xl: 3rem;
+    --heading-reflection:  below -1rem linear-gradient(to bottom, rgba(0,0,0, 0), rgba(0,0,0, 0.25));
+  }
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(-45deg, var(--lighter-purple), var(--darker-purple));
+  justify-content: center;
+  align-items: center;
+}
+
+h2 {
+  display: block;
+  margin: 0;
+  padding: 0;
+  font-family: 'Bangers', Helvetica, sans-serif;
+  font-weight: 900;
+}
+
+.text-2xl {
+  font-size: var(--text-2xl);
+}
+
+.gradient-heading::before {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  content: "Cool gradient text";
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgb(80, 65, 65),
+    black 2px,
+    white 2px,
+    white 4px
+  );
+  mix-blend-mode: overlay;
+  filter: opacity(0.15);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.gradient-heading {
+  position: relative;
+  background: linear-gradient(135deg, darkorange, darkorchid);
+  background-position: fixed;
+  text-fill-color: transparent;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  color: rgb(47, 166, 146);
+  padding: 0 1rem;
+}
+
+/* 
+  Reflections only work in Chromium-based browsers at the moment.
+  Sorry, Firefox.
+*/
+.reflect {
+  -webkit-box-reflect: var(--heading-reflection);
+}
+.button {
+  color:orangered;
+  margin:20px;
+  padding: 5px;
+  border-radius: 10px;
+  background-color:aliceblue;
+
+}
